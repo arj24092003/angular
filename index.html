@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS CRUD</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="crudApp">
+
+    <div class="container" ng-controller="crudController">
+
+        <h2>AngularJS CRUD Operations</h2>
+
+               <form ng-submit="addUser()">
+            <input type="text" ng-model="newUser.name" placeholder="Enter Name" required>
+            <input type="email" ng-model="newUser.email" placeholder="Enter Email" required>
+            <button type="submit">Add User</button>
+        </form>
+
+        <hr>
+
+        <h3>Users List</h3>
+        <ul>
+            <li ng-repeat="user in users">
+                {{ user.name }} ({{ user.email }})
+                <button ng-click="editUser(user)">Edit</button>
+                <button ng-click="deleteUser(user.id)">Delete</button>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
